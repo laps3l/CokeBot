@@ -51,6 +51,8 @@ class coke:
             self.bot.sendMessage(self.chat_id, '[+]User commands[+]\n/myid@drugsoverdose_bot\n/id@coke\n/onionlink@coke\n/test@coke\n[+]Admin commands[+]\n/ban@coke\n/fix@coke\n/unpin@coke\n/addlink@coke\n/unban@coke\n/promote@coke', reply_to_message_id=self.msg['message_id'])
             log.write('Name: ' + str(self.msg['from']['first_name'].encode('utf-8')) + ' |Chat: ' + str(self.msg['chat']['id']) + '|User: ' + str(user.encode('utf-8')) + ' |Text: ' + str(self.msg.get('text').encode('utf-8')) + '\n')
             print 'Name: ' + str(self.msg['from']['first_name']) + ' |Chat: ' + str(self.msg['chat']['id']) + ' |User: ' + str(user) + ' - /help@coke'
+        elif msg == '/src@coke':
+            self.bot.sendMessage(self.chat_id, 'https://github.com/laps3l/CokeBot', reply_to_message_id=self.msg['message_id'])
         elif msg == '/pin@coke':
             if self.msg['from']['id'] == 749087933:
                 self.bot.forwardMessage('@bypassedltda', self.chat_id, self.msg['reply_to_message']['message_id'])
@@ -59,6 +61,12 @@ class coke:
                 print 'Name: ' + str(self.msg['from']['first_name']) + ' |Chat: ' + str(self.msg['chat']['id']) + ' |User: ' + str(user) + ' - /forward@coke'
             else:
                 self.bot.sendMessage(self.chat_id, 'Fuck you bitch!', reply_to_message_id=self.msg['message_id'])
+        elif msg == '/banid@coke':
+            fw = self.msg.get('text').split()
+            self.bot.kickChatMember(self.chat_id, fw[1])
+            log.write('Name: ' + str(self.msg['from']['first_name'].encode('utf-8')) + ' |Chat: ' + str(self.msg['chat']['id']) + '|User: ' + str(user.encode('utf-8')) + ' |Text: ' + str(self.msg.get('text').encode('utf-8')) + '\n')
+            print 'Name: ' + str(self.msg['from']['first_name']) + ' |Chat: ' + str(self.msg['chat']['id']) + ' |User: ' + str(user) + ' - /banid@coke'
+            print str(user.encode('utf-8')) + ' has banned ' + str(usern.encode('utf-8'))
         elif self.msg.get('text').startswith('/addlink@coke'):
             if self.msg['from']['id'] in adm_id:
                 damn = self.msg.get('text').split()
