@@ -36,6 +36,9 @@ def handle(msg):
                 bot.sendMessage('@yourchannel', 'File name: ' + msg['document']['file_name'])
                 bot.sendDocument('@yourchannel', msg['document']['file_id'])
                 print 'Document sended!'
+    elif msg.get('new_chat_member'):
+        bot.sendMessage(chat_id, 'Bem-vindo!', reply_to_message_id=msgid)
+        print 'new user'
     elif msg.get('text'):
         coke_object = coke(bot, chat_id, msg)
         texto = msg['text'].split()[0]
