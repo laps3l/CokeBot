@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-#creator: laps3(@drugsoverdos3)
+#creator: laps3(@answermebitch)
 
 import telepot
 import os
